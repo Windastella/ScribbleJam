@@ -37,28 +37,33 @@ func _on_Up_input_event(viewport, event, shape_idx):
 func _on_Right_body_entered(body):
 	$Arrows/Right.hide();
 	$Arrows/Right.input_pickable = false;
+	body.show_interaction()
 
 
 func _on_Right_body_exited(body):
 	$Arrows/Right.show();
 	$Arrows/Right.input_pickable = true;
+	body.hide_interaction()
 
 
 func _on_Left_body_entered(body):
 	$Arrows/Left.hide();
 	$Arrows/Left.input_pickable = false;
+	body.show_interaction()
 
 
 func _on_Left_body_exited(body):
 	$Arrows/Left.show();
 	$Arrows/Left.input_pickable = true;
+	body.hide_interaction()
 
 
 func _on_Up_body_entered(body):
 	$Arrows/Up.hide();
 	$Arrows/Up.input_pickable = false;
-
+	body.show_interaction()
 
 func _on_Up_body_exited(body):
 	$Arrows/Up.show();
 	$Arrows/Up.input_pickable = true;
+	body.hide_interaction()
