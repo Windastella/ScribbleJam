@@ -11,6 +11,7 @@ var frames = 0
 var is_colored = false
 var paint = false
 
+onready var level = $Node.level
 
 func changePaint():
 	var figures_map = $figures_tile_map;
@@ -19,6 +20,17 @@ func changePaint():
 	if paint == false: $board_tile_map.set_cellv(pos, board_cell_sprite)
 	board_cell_sprite = $board_tile_map.get_cellv(pos)
 	frames = 0.250
+
+func _ready():
+	draw_level(level)
+
+func draw_level(level):
+	for i in range(level.size()):
+		for j in range(level[i].size()):
+			if level[i][j] == "": $figures_tile_map.set_cell(j, i, -1)
+			else:
+				var tile_id = $figures_tile_map.tile_set.find_tile_by_name(level[i][j])
+				$figures_tile_map.set_cell(j, i, tile_id)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,6 +46,9 @@ func _process(delta):
 				$board_tile_map.set_cellv(pos, 16)
 				is_colored = true
 	frames+=delta
+
+func get_tile_name(tile_id, tile_set):
+	return tile_set.tile_get_name(tile_id).split(' ')[0]
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:

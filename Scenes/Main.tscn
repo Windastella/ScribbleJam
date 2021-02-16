@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
 
@@ -17,3 +18,6 @@ z_index = 1
 tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( 0, 6, 0, 1, 8, 0, 2, 5, 0, 3, 4, 0, 4, 3, 0, 5, 5, 0, 6, 8, 0, 7, 6, 0, 65536, 9, 0, 65537, 9, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 393216, 15, 0, 393217, 15, 0, 393218, 15, 0, 393219, 15, 0, 393220, 15, 0, 393221, 15, 0, 393222, 15, 0, 393223, 15, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458755, 11, 0, 458756, 10, 0, 458757, 14, 0, 458758, 13, 0, 458759, 12, 0 )
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 1 )

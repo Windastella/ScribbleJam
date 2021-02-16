@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white_cell.png-46351b737f4beee66e85a7d587a2f312.stex"
+path="res://.import/white_cell.png-bd4672068141ab935015d8c9f178bc44.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/white_cell.png"
-dest_files=[ "res://.import/white_cell.png-46351b737f4beee66e85a7d587a2f312.stex" ]
+source_file="res://assets/white_cell.png"
+dest_files=[ "res://.import/white_cell.png-bd4672068141ab935015d8c9f178bc44.stex" ]
 
 [params]
 
