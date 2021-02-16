@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Figures
 
 export (Array, Texture) var dialogues; 
 

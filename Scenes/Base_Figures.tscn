@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/chess_sprite_sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/interact_sprite.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -16,5 +17,11 @@ vframes = 2
 hframes = 6
 frame = 11
 
+[node name="interact_sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+frame = 11
+
 [node name="Shape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
