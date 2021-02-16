@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/chess_sprite_sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/pieces.png" type="Texture" id=2]
 [ext_resource path="res://assets/arrow_sheet.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -106,7 +106,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 6
-frame = 11
+frame = 5
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -118,7 +118,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 14
+frame = 15
 speed_scale = 5.0
 playing = true
 
@@ -131,7 +131,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 12
+frame = 13
 speed_scale = 5.0
 playing = true
 
@@ -144,7 +144,7 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 13
+frame = 14
 speed_scale = 5.0
 playing = true
 

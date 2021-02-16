@@ -69,9 +69,9 @@ func _on_Left_body_exited(body):
 func _on_Up_body_entered(body):
 	$Arrows/Up.hide();
 	$Arrows/Up.input_pickable = false;
-	_display_interaction(body);
+	#_display_interaction(body);
 
 func _on_Up_body_exited(body):
 	$Arrows/Up.show();
 	$Arrows/Up.input_pickable = true;
-	_hide_interaction(body)
+	#_hide_interaction(body)

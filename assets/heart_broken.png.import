@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chess_sprite_sheet.png-1822301c2610a206dac8ed04bb2f59ca.stex"
+path="res://.import/heart_broken.png-61a3d642b4603c8596e5d1956cef378e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chess_sprite_sheet.png"
-dest_files=[ "res://.import/chess_sprite_sheet.png-1822301c2610a206dac8ed04bb2f59ca.stex" ]
+source_file="res://assets/heart_broken.png"
+dest_files=[ "res://.import/heart_broken.png-61a3d642b4603c8596e5d1956cef378e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

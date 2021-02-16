@@ -6,3 +6,6 @@
 
 [node name="Sprite" parent="." index="0"]
 frame = 4
+
+[node name="interact_sprite" parent="." index="1"]
+frame = 0
