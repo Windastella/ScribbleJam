@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chess_sprite_sheet.png-84a35bb40ea03d0e99e617bd75271ba6.stex"
+path="res://.import/chess_sprite_sheet.png-1822301c2610a206dac8ed04bb2f59ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/chess_sprite_sheet.png"
-dest_files=[ "res://.import/chess_sprite_sheet.png-84a35bb40ea03d0e99e617bd75271ba6.stex" ]
+source_file="res://assets/chess_sprite_sheet.png"
+dest_files=[ "res://.import/chess_sprite_sheet.png-1822301c2610a206dac8ed04bb2f59ca.stex" ]
 
 [params]
 
