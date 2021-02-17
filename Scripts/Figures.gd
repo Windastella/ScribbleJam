@@ -8,6 +8,7 @@ func _ready():
 		var texrect = TextureRect.new();
 		texrect.texture = tex;
 		$dialog/CenterContainer/GridContainer.add_child(texrect);
+	$AnimationPlayer.play("Default");
 
 func show_interaction():
 	$interact_sprite.show();
