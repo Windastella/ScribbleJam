@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heart_broken.png-61a3d642b4603c8596e5d1956cef378e.stex"
+path="res://.import/comic-2.png-0b2593a4502ab1740cd140e03198739d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/heart_broken.png"
-dest_files=[ "res://.import/heart_broken.png-61a3d642b4603c8596e5d1956cef378e.stex" ]
+source_file="res://assets/comic-2.png"
+dest_files=[ "res://.import/comic-2.png-0b2593a4502ab1740cd140e03198739d.stex" ]
 
 [params]
 

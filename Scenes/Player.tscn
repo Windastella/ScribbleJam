@@ -118,7 +118,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 9
+frame = 14
 speed_scale = 5.0
 playing = true
 
@@ -131,7 +131,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 7
+frame = 12
 speed_scale = 5.0
 playing = true
 
@@ -144,7 +144,7 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 8
+frame = 13
 speed_scale = 5.0
 playing = true
 

@@ -3,8 +3,31 @@ class_name Figures
 
 export (Array, Texture) var dialogues; 
 
+func _ready():
+	for tex in dialogues:
+		var texrect = TextureRect.new();
+		texrect.texture = tex;
+		$dialog_sprite/CenterContainer/GridContainer.add_child(texrect);
+
 func show_interaction():
-	$interact_sprite.visible = true
+	$interact_sprite.show();
 	
 func hide_interaction():
-	$interact_sprite.visible = false
+	$interact_sprite.hide();
+
+	$dialog_sprite.hide();
+		
+func _on_Interact_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		if(event.button_index == BUTTON_LEFT && event.pressed):
+			$interact_sprite.hide();
+
+			$dialog_sprite.show();
+
+
+func _on_Dialog_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		if(event.button_index == BUTTON_LEFT && event.pressed):
+			$interact_sprite.show();
+
+			$dialog_sprite.hide();

@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
 [ext_resource path="res://assets/interact_sprite.png" type="Texture" id=3]
+[ext_resource path="res://assets/comic-2.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 205.625, 158.5 )
 
 [node name="Figure" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -21,6 +28,48 @@ visible = false
 position = Vector2( 32, -64 )
 texture = ExtResource( 3 )
 
+[node name="Interact" type="Area2D" parent="interact_sprite"]
+
+[node name="Shape" type="CollisionShape2D" parent="interact_sprite/Interact"]
+shape = SubResource( 2 )
+
 [node name="Shape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
+
+[node name="dialog_sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 80, -96 )
+scale = Vector2( 0.544681, 0.403785 )
+z_index = 1
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="CenterContainer" type="CenterContainer" parent="dialog_sprite"]
+margin_left = -206.0
+margin_top = -158.0
+margin_right = 206.0
+margin_bottom = 74.0
+grow_horizontal = 2
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="dialog_sprite/CenterContainer"]
+margin_left = 206.0
+margin_top = 116.0
+margin_right = 206.0
+margin_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="Area2D" parent="dialog_sprite"]
+
+[node name="Shape" type="CollisionShape2D" parent="dialog_sprite/Interact"]
+shape = SubResource( 3 )
+[connection signal="input_event" from="interact_sprite/Interact" to="." method="_on_Interact_input_event"]
+[connection signal="input_event" from="dialog_sprite/Interact" to="." method="_on_Dialog_input_event"]
