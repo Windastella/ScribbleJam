@@ -4,9 +4,9 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Main" parent="." instance=ExtResource( 1 )]
+[node name="Level" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -64, -64 )
+position = Vector2( -64, -32 )
 anchor_mode = 0
 current = true

@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends KinematicBody2D
 class_name Player
 
 # Declare member variables here. Examples:
@@ -16,19 +16,19 @@ func _ready():
 #	pass
 
 # move by arrow
-func _on_Right_input_event(viewport, event, shape_idx):
+func _on_Right_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if(event.button_index == BUTTON_LEFT && event.pressed):
 			position.x += 64;
 
 
-func _on_Left_input_event(viewport, event, shape_idx):
+func _on_Left_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if(event.button_index == BUTTON_LEFT && event.pressed):
 			position.x -= 64;
 
 
-func _on_Up_input_event(viewport, event, shape_idx):
+func _on_Up_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if(event.button_index == BUTTON_LEFT && event.pressed):
 			position.y -= 64;
@@ -66,12 +66,12 @@ func _on_Left_body_exited(body):
 	_hide_interaction(body)
 
 
-func _on_Up_body_entered(body):
+func _on_Up_body_entered(_body):
 	$Arrows/Up.hide();
 	$Arrows/Up.input_pickable = false;
 	#_display_interaction(body);
 
-func _on_Up_body_exited(body):
+func _on_Up_body_exited(_body):
 	$Arrows/Up.show();
 	$Arrows/Up.input_pickable = true;
 	#_hide_interaction(body)
