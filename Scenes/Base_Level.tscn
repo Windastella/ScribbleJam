@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 32 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 30 )
 
 [sub_resource type="StyleBoxTexture" id=3]
@@ -30,51 +30,51 @@ region_rect = Rect2( 343, 11, 55, 54 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="StyleBoxEmpty" id=8]
-
 [sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 128, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=11]
-
 [sub_resource type="StyleBoxEmpty" id=12]
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=14]
-
 [sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 256, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=17]
-
 [sub_resource type="StyleBoxEmpty" id=18]
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 64, 64 )
@@ -120,7 +120,7 @@ texture = ExtResource( 3 )
 position = Vector2( 256, 32 )
 
 [node name="Shape" type="CollisionShape2D" parent="Board/Goal"]
-shape = SubResource( 20 )
+shape = SubResource( 2 )
 
 [node name="Pieces" type="Node2D" parent="."]
 
@@ -168,7 +168,7 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-icon = SubResource( 21 )
+icon = SubResource( 7 )
 clip_text = true
 
 [node name="Queen" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
@@ -179,7 +179,7 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-icon = SubResource( 7 )
+icon = SubResource( 8 )
 clip_text = true
 
 [node name="Rook" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
@@ -188,9 +188,9 @@ margin_right = 200.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-icon = SubResource( 10 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+icon = SubResource( 11 )
 clip_text = true
 
 [node name="Knight" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
@@ -199,9 +199,9 @@ margin_right = 268.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
-icon = SubResource( 13 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+icon = SubResource( 14 )
 clip_text = true
 
 [node name="Bishop" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
@@ -210,9 +210,9 @@ margin_right = 336.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-icon = SubResource( 16 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+icon = SubResource( 17 )
 clip_text = true
 
 [node name="Pawn" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
@@ -221,10 +221,18 @@ margin_right = 404.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-icon = SubResource( 19 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+icon = SubResource( 20 )
 clip_text = true
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -64, -32 )
+anchor_mode = 0
+current = true
+__meta__ = {
+"_editor_description_": ""
+}
 [connection signal="body_entered" from="Board/Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
 [connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]
