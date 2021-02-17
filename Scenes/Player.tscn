@@ -118,7 +118,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 14
+frame = 19
 speed_scale = 5.0
 playing = true
 
@@ -131,7 +131,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 12
+frame = 17
 speed_scale = 5.0
 playing = true
 
@@ -144,11 +144,17 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 13
+frame = 18
 speed_scale = 5.0
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="Arrows/Up"]
+shape = SubResource( 23 )
+
+[node name="Down" type="Area2D" parent="Arrows"]
+position = Vector2( 0, 64 )
+
+[node name="Shape" type="CollisionShape2D" parent="Arrows/Down"]
 shape = SubResource( 23 )
 [connection signal="body_entered" from="Arrows/Right" to="." method="_on_Right_body_entered"]
 [connection signal="body_exited" from="Arrows/Right" to="." method="_on_Right_body_exited"]
@@ -159,3 +165,5 @@ shape = SubResource( 23 )
 [connection signal="body_entered" from="Arrows/Up" to="." method="_on_Up_body_entered"]
 [connection signal="body_exited" from="Arrows/Up" to="." method="_on_Up_body_exited"]
 [connection signal="input_event" from="Arrows/Up" to="." method="_on_Up_input_event"]
+[connection signal="body_entered" from="Arrows/Down" to="." method="_on_Down_body_entered"]
+[connection signal="body_exited" from="Arrows/Down" to="." method="_on_Down_body_exited"]

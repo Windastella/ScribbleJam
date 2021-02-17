@@ -41,6 +41,7 @@ frame = 11
 [node name="interact_sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 32, -64 )
+z_index = 2
 texture = ExtResource( 3 )
 
 [node name="Interact" type="Area2D" parent="interact_sprite"]

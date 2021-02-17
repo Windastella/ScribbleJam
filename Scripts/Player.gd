@@ -32,7 +32,7 @@ func _on_Up_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if(event.button_index == BUTTON_LEFT && event.pressed):
 			position.y -= 64;
-
+	
 # hide on collision and trigger entity
 func _display_interaction(body):
 	if(body is Figures):
@@ -66,12 +66,22 @@ func _on_Left_body_exited(body):
 	_hide_interaction(body)
 
 
-func _on_Up_body_entered(_body):
+func _on_Up_body_entered(body):
 	$Arrows/Up.hide();
 	$Arrows/Up.input_pickable = false;
-	#_display_interaction(body);
+	_display_interaction(body);
 
-func _on_Up_body_exited(_body):
+func _on_Up_body_exited(body):
 	$Arrows/Up.show();
 	$Arrows/Up.input_pickable = true;
-	#_hide_interaction(body)
+	_hide_interaction(body)
+
+func _on_Down_body_entered(body):
+	$Arrows/Down.hide();
+	$Arrows/Down.input_pickable = false;
+	_display_interaction(body);
+
+func _on_Down_body_exited(body):
+	$Arrows/Down.show();
+	$Arrows/Down.input_pickable = true;
+	_hide_interaction(body)
