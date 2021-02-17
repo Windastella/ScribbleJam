@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Base_Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pieces/Knight.tscn" type="PackedScene" id=2]
@@ -8,9 +8,7 @@
 [ext_resource path="res://Scenes/Pieces/Rook.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pieces/Pawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Pieces/King.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/Pieces/heart_broken.png" type="Texture" id=9]
 [ext_resource path="res://assets/Pieces/heart.png" type="Texture" id=10]
-[ext_resource path="res://assets/Pieces/BRook.tres" type="Texture" id=11]
 [ext_resource path="res://assets/Pieces/Pawn.tres" type="Texture" id=12]
 [ext_resource path="res://assets/Pieces/BKing.tres" type="Texture" id=13]
 [ext_resource path="res://assets/Pieces/BPawn.tres" type="Texture" id=14]
@@ -44,30 +42,26 @@ dialogues = [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 16 ) ]
 [node name="Bishop" parent="Pieces" index="7" instance=ExtResource( 3 )]
 position = Vector2( 352, 416 )
 
-[node name="Knight" parent="Pieces/Bishop" index="4" instance=ExtResource( 2 )]
-position = Vector2( -192, -192 )
-dialogues = [ ExtResource( 17 ), ExtResource( 9 ), ExtResource( 11 ) ]
-
-[node name="Pawn3" parent="Hint" index="0" instance=ExtResource( 7 )]
-position = Vector2( 608, 192 )
-
-[node name="Rook" parent="." index="4" instance=ExtResource( 6 )]
-position = Vector2( 608, 288 )
-
-[node name="King" parent="Rook" index="3" instance=ExtResource( 8 )]
-position = Vector2( 0, 192 )
-
-[node name="Liar" parent="Rook" index="4" instance=ExtResource( 5 )]
-position = Vector2( 64, -96 )
-
-[node name="Knight" parent="." index="5" instance=ExtResource( 2 )]
-position = Vector2( 608, 384 )
-
-[node name="Liar" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Liar2" parent="Hint" index="0" instance=ExtResource( 5 )]
 position = Vector2( 672, 288 )
 
-[node name="Honest" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Honest" parent="Hint" index="1" instance=ExtResource( 4 )]
 position = Vector2( 672, 384 )
 
-[node name="Honest2" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Honest2" parent="Hint" index="2" instance=ExtResource( 4 )]
 position = Vector2( 672, 480 )
+
+[node name="Knight" parent="Hint" index="3" instance=ExtResource( 2 )]
+position = Vector2( 608, 384 )
+
+[node name="Liar" parent="Hint" index="4" instance=ExtResource( 5 )]
+position = Vector2( 672, 192 )
+
+[node name="Rook" parent="Hint" index="5" instance=ExtResource( 6 )]
+position = Vector2( 608, 288 )
+
+[node name="King" parent="Hint" index="6" instance=ExtResource( 8 )]
+position = Vector2( 608, 480 )
+
+[node name="Pawn3" parent="Hint" index="7" instance=ExtResource( 7 )]
+position = Vector2( 608, 192 )
