@@ -1,18 +1,21 @@
 extends Node2D
 
+signal change_level
 
 enum PIECES {KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN}
 export (PIECES) var answer = PIECES.KING;
+
+export (PackedScene) var next_level;
 
 func _answer(piece):
 	$UI/Options.hide();
 	# correct
 	if(answer == piece):
-		pass
+		emit_signal("change_level", next_level);
 	# incorrect
 	else:
-		pass
-
+		get_tree().reload_current_scene();
+		
 func _on_King_pressed():
 	_answer(PIECES.KING);
 
