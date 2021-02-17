@@ -8,7 +8,7 @@ export (PIECES) var answer = PIECES.KING;
 export (PackedScene) var next_level;
 
 func _answer(piece):
-	$UI/Options.hide();
+	$CanvasLayer/UI/Options.hide();
 	# correct
 	if(answer == piece):
 		emit_signal("change_level", next_level);
@@ -41,4 +41,4 @@ func _on_Pawn_pressed():
 
 func _on_Goal_body_entered(body):
 	if body is Player:
-		$UI/Options.show();
+		$CanvasLayer/UI/Options.show();

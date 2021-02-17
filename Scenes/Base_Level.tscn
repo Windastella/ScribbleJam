@@ -133,14 +133,18 @@ position = Vector2( 288, 480 )
 
 [node name="Hint" type="Node2D" parent="."]
 
-[node name="UI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2( 64, 64 )
+transform = Transform2D( 1, 0, 0, 1, 64, 64 )
+
+[node name="UI" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="PanelContainer" parent="UI"]
+[node name="Options" type="PanelContainer" parent="CanvasLayer/UI"]
 visible = false
 margin_top = 192.0
 margin_right = 512.0
@@ -150,18 +154,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/Options"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/Options"]
 margin_top = 2.69876
 margin_right = 511.096
 margin_bottom = 191.548
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Options/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Options/CenterContainer"]
 margin_left = 53.0
 margin_top = 62.0
 margin_right = 457.0
 margin_bottom = 126.0
 
-[node name="King" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="King" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
 custom_styles/hover = SubResource( 4 )
@@ -171,7 +175,7 @@ custom_styles/normal = SubResource( 6 )
 icon = SubResource( 7 )
 clip_text = true
 
-[node name="Queen" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="Queen" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
@@ -182,7 +186,7 @@ custom_styles/normal = SubResource( 6 )
 icon = SubResource( 8 )
 clip_text = true
 
-[node name="Rook" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="Rook" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
@@ -193,7 +197,7 @@ custom_styles/normal = SubResource( 10 )
 icon = SubResource( 11 )
 clip_text = true
 
-[node name="Knight" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="Knight" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
@@ -204,7 +208,7 @@ custom_styles/normal = SubResource( 13 )
 icon = SubResource( 14 )
 clip_text = true
 
-[node name="Bishop" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="Bishop" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
@@ -215,7 +219,7 @@ custom_styles/normal = SubResource( 16 )
 icon = SubResource( 17 )
 clip_text = true
 
-[node name="Pawn" type="Button" parent="UI/Options/CenterContainer/HBoxContainer"]
+[node name="Pawn" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 340.0
 margin_right = 404.0
 margin_bottom = 64.0
@@ -227,16 +231,16 @@ icon = SubResource( 20 )
 clip_text = true
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2( -64, -32 )
+position = Vector2( -64, -48 )
 anchor_mode = 0
 current = true
 __meta__ = {
 "_editor_description_": ""
 }
 [connection signal="body_entered" from="Board/Goal" to="." method="_on_Goal_body_entered"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Rook" to="." method="_on_Rook_pressed"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Knight" to="." method="_on_Knight_pressed"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Bishop" to="." method="_on_Bishop_pressed"]
-[connection signal="pressed" from="UI/Options/CenterContainer/HBoxContainer/Pawn" to="." method="_on_Pawn_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Rook" to="." method="_on_Rook_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Knight" to="." method="_on_Knight_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Bishop" to="." method="_on_Bishop_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Pawn" to="." method="_on_Pawn_pressed"]
