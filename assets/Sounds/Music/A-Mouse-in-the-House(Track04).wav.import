@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/A-Mouse-in-the-House(Track04).wav-f0ffe4aa244c94db038866a12a86e145.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav"
+dest_files=[ "res://.import/A-Mouse-in-the-House(Track04).wav-f0ffe4aa244c94db038866a12a86e145.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,29 @@
 [ext_resource path="res://assets/UI_Button.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=8]
 [ext_resource path="res://assets/Sounds/Thinking_Music.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/background.png" type="Texture" id=10]
+[ext_resource path="res://assets/hint_box.png" type="Texture" id=11]
+[ext_resource path="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/Sounds/Music/Ruffles-and-Rust(Track02).wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/Sounds/Music/Happy-Orchestral-Ballet(Track01).wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/Sounds/Music/Leave-It-to-the-Professionals(Track03).wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/Sounds/Music/Feriado(Track05).wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/Menu/mute_button.png" type="Texture" id=17]
+[ext_resource path="res://assets/Menu/mute_button_selected.png" type="Texture" id=18]
+[ext_resource path="res://assets/Menu/menu_button_selected.png" type="Texture" id=19]
+[ext_resource path="res://assets/Menu/menu_button.png" type="Texture" id=20]
+[ext_resource path="res://assets/Menu/clock1.png" type="Texture" id=21]
+[ext_resource path="res://assets/Menu/clock0.png" type="Texture" id=22]
+[ext_resource path="res://assets/Menu/clock3.png" type="Texture" id=23]
+[ext_resource path="res://assets/Menu/clock2.png" type="Texture" id=24]
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 32 )
@@ -83,6 +106,71 @@ filter_clip = true
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 8 )
+music_list = [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ) ]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -128, -64 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 1.1, 1.1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="background" type="Sprite" parent="Camera"]
+position = Vector2( 562.919, 331.297 )
+scale = Vector2( 1.04244, 1.10433 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="hint_box" type="Sprite" parent="Camera"]
+position = Vector2( 776, 400 )
+scale = Vector2( 0.611111, 1.19885 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="hint_box2" type="Sprite" parent="Camera"]
+position = Vector2( 808, 112 )
+scale = Vector2( 0.833333, 0.368876 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Menu" type="TextureButton" parent="Camera"]
+margin_left = 896.0
+margin_top = 256.0
+margin_right = 1088.0
+margin_bottom = 328.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 20 )
+texture_focused = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mute" type="TextureButton" parent="Camera"]
+margin_left = 896.0
+margin_top = 352.0
+margin_right = 1088.0
+margin_bottom = 448.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_disabled = ExtResource( 17 )
+texture_focused = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clock" type="AnimatedSprite" parent="Camera"]
+position = Vector2( 992, 528 )
+frames = SubResource( 21 )
+playing = true
 
 [node name="Board" type="Node2D" parent="."]
 
@@ -232,18 +320,12 @@ custom_styles/normal = SubResource( 19 )
 icon = SubResource( 20 )
 clip_text = true
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2( -256, -64 )
-anchor_mode = 0
-current = true
-zoom = Vector2( 1.1, 1.1 )
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -10.0
 autoplay = true
+[connection signal="pressed" from="Camera/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="toggled" from="Camera/Mute" to="." method="_on_Mute_toggled"]
 [connection signal="body_entered" from="Board/Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]

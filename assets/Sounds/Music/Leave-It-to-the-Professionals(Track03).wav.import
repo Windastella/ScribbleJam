@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Leave-It-to-the-Professionals(Track03).wav-2bfbd667c6ddbdc2db7dae8334089750.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Music/Leave-It-to-the-Professionals(Track03).wav"
+dest_files=[ "res://.import/Leave-It-to-the-Professionals(Track03).wav-2bfbd667c6ddbdc2db7dae8334089750.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

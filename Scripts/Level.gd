@@ -8,6 +8,13 @@ export (PIECES) var answer = PIECES.KING;
 
 export (PackedScene) var next_level;
 
+export (Array, AudioStream) var music_list;
+
+func _ready():
+	var i = randi() % 3;
+	$AudioStreamPlayer.stream = music_list[i];
+	$AudioStreamPlayer.play();
+
 func _answer(piece):
 	$CanvasLayer/UI/Options.hide();
 	# correct
@@ -42,3 +49,14 @@ func _on_Pawn_pressed():
 func _on_Goal_body_entered(body):
 	if body is Player:
 		$CanvasLayer/UI.show();
+
+
+func _on_Mute_toggled(button_pressed):
+	if(button_pressed):
+		$AudioStreamPlayer.stop();
+	else:
+		$AudioStreamPlayer.play();
+
+
+func _on_Menu_pressed():
+	emit_signal("change_level", null);

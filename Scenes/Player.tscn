@@ -118,7 +118,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 15
+frame = 17
 speed_scale = 5.0
 playing = true
 
@@ -131,7 +131,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 13
+frame = 15
 speed_scale = 5.0
 playing = true
 
@@ -144,7 +144,7 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 14
+frame = 16
 speed_scale = 5.0
 playing = true
 
@@ -158,6 +158,7 @@ position = Vector2( 0, 64 )
 shape = SubResource( 23 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 [connection signal="body_entered" from="Arrows/Right" to="." method="_on_Right_body_entered"]
 [connection signal="body_exited" from="Arrows/Right" to="." method="_on_Right_body_exited"]
 [connection signal="input_event" from="Arrows/Right" to="." method="_on_Right_input_event"]
