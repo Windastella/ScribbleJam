@@ -1,6 +1,7 @@
 extends Node2D
 
 signal change_level
+signal reset_level
 
 enum PIECES {KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN}
 export (PIECES) var answer = PIECES.KING;
@@ -12,9 +13,8 @@ func _answer(piece):
 	# correct
 	if(answer == piece):
 		emit_signal("change_level", next_level);
-	# incorrect
 	else:
-		get_tree().reload_current_scene();
+		emit_signal("reset_level");
 		
 func _on_King_pressed():
 	_answer(PIECES.KING);

@@ -1,10 +1,12 @@
 extends Node2D
 
 export(PackedScene) var initial_scene;
+var current_scene : PackedScene;
 
 export(AudioStream) var start_sound;
 export(AudioStream) var credit_sound;
 export(AudioStream) var quit_sound;
+
 
 func _ready():
 	$AnimationPlayer.play("Default");
@@ -21,15 +23,19 @@ func _on_next_level(scene):
 	_remove_level();
 	_init_level(scene);
 	
+func _on_reset_level():
+	_remove_level();
+	_init_level(current_scene);
+	
 func _remove_level():
-	$Level.free();
-	var container = Node2D.new();
-	container.name = "Level";
-	add_child(container);
+	for child in $Level.get_children():
+		child.queue_free();
 	
 func _init_level(scene):
+	current_scene = scene;
 	var level = scene.instance();
 	level.connect("change_level",self,"_on_next_level");
+	level.connect("reset_level",self,"_on_reset_level");
 	$Level.add_child(level);
 
 
