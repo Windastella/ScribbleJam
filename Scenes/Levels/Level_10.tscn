@@ -1,0 +1,68 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/Base_Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pieces/Knight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pieces/Bishop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pieces/Honest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Pieces/BRook.tres" type="Texture" id=5]
+[ext_resource path="res://Scenes/Pieces/Rook.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pieces/Pawn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pieces/King.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Pieces/Bishop.tres" type="Texture" id=9]
+[ext_resource path="res://assets/Pieces/heart.png" type="Texture" id=10]
+[ext_resource path="res://assets/Pieces/Knight.tres" type="Texture" id=11]
+[ext_resource path="res://assets/Pieces/Rook.tres" type="Texture" id=12]
+[ext_resource path="res://assets/Pieces/BKing.tres" type="Texture" id=13]
+[ext_resource path="res://assets/Pieces/BPawn.tres" type="Texture" id=14]
+[ext_resource path="res://assets/Pieces/BQueen.tres" type="Texture" id=15]
+[ext_resource path="res://assets/Pieces/BBishop.tres" type="Texture" id=16]
+[ext_resource path="res://assets/Pieces/BKnight.tres" type="Texture" id=17]
+[ext_resource path="res://assets/Pieces/heart_broken.png" type="Texture" id=18]
+
+[node name="Level" instance=ExtResource( 1 )]
+answer = 5
+
+[node name="Rook" parent="Pieces" index="2" instance=ExtResource( 6 )]
+position = Vector2( 95.9803, 160 )
+dialogues = [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 14 ) ]
+
+[node name="Knight" type="Sprite" parent="Pieces/Rook" index="5"]
+position = Vector2( 498.101, 144 )
+texture = ExtResource( 11 )
+
+[node name="Rook" type="Sprite" parent="Pieces/Rook/Knight" index="0"]
+position = Vector2( -1.12244, 80.7151 )
+texture = ExtResource( 12 )
+
+[node name="Bishop" type="Sprite" parent="Pieces/Rook/Knight/Rook" index="0"]
+position = Vector2( -1.12244, 85.3071 )
+texture = ExtResource( 9 )
+
+[node name="King" parent="Pieces" index="3" instance=ExtResource( 8 )]
+position = Vector2( 352.02, 223.98 )
+dialogues = [ ExtResource( 5 ), ExtResource( 18 ), ExtResource( 15 ) ]
+
+[node name="Pawn" parent="Pieces" index="4" instance=ExtResource( 7 )]
+position = Vector2( 224, 351.98 )
+dialogues = [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 13 ) ]
+
+[node name="Knight" parent="Pieces" index="5" instance=ExtResource( 2 )]
+position = Vector2( 479.862, 224.039 )
+dialogues = [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 14 ) ]
+
+[node name="Pawn2" parent="Pieces" index="6" instance=ExtResource( 7 )]
+position = Vector2( 480, 351.98 )
+dialogues = [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ) ]
+
+[node name="Bishop" parent="Pieces" index="7" instance=ExtResource( 3 )]
+position = Vector2( 32.0984, 416 )
+dialogues = [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ) ]
+
+[node name="Honest" parent="Hint" index="0" instance=ExtResource( 4 )]
+position = Vector2( 672, 384 )
+
+[node name="Honest3" parent="Hint" index="1" instance=ExtResource( 4 )]
+position = Vector2( 672, 304 )
+
+[node name="Honest2" parent="Hint" index="2" instance=ExtResource( 4 )]
+position = Vector2( 672, 480 )

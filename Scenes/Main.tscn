@@ -1,6 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
+<<<<<<< Updated upstream
 [ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=1]
+=======
+[ext_resource path="res://Scenes/Levels/LevelTest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
+>>>>>>> Stashed changes
 
 [node name="Main" type="Node2D"]
 
