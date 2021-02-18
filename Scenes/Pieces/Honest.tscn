@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/icons_64x64.png" type="Texture" id=1]
+[ext_resource path="res://assets/good.png" type="Texture" id=1]
 
 [node name="Honest" type="Sprite"]
-modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 38
