@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/UI_Elements02.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI_Button.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=8]
-[ext_resource path="res://assets/Sounds/Thinking_Music.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/background.png" type="Texture" id=10]
 [ext_resource path="res://assets/hint_box.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav" type="AudioStream" id=12]
@@ -103,7 +102,6 @@ filter_clip = true
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 8 )
-music = ExtResource( 12 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -128, -64 )
@@ -167,7 +165,7 @@ __meta__ = {
 [node name="clock" type="AnimatedSprite" parent="Camera"]
 position = Vector2( 992, 528 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="level" type="Sprite" parent="Camera"]
@@ -323,7 +321,7 @@ icon = SubResource( 21 )
 clip_text = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 12 )
 volume_db = -10.0
 autoplay = true
 [connection signal="pressed" from="Camera/Menu" to="." method="_on_Menu_pressed"]

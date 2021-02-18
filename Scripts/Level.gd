@@ -8,10 +8,7 @@ export (PIECES) var answer = PIECES.KING;
 
 export (PackedScene) var next_level;
 
-export(AudioStream ) var music : AudioStream;
-
 func _ready():
-	$AudioStreamPlayer.stream = music;
 	$AudioStreamPlayer.play();
 
 func _answer(piece):
