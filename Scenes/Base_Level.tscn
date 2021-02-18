@@ -139,17 +139,18 @@ offset = Vector2( 64, 64 )
 transform = Transform2D( 1, 0, 0, 1, 64, 64 )
 
 [node name="UI" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+visible = false
+margin_right = 576.0
+margin_bottom = 240.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Options" type="PanelContainer" parent="CanvasLayer/UI"]
-visible = false
-margin_top = 192.0
-margin_right = 512.0
-margin_bottom = 384.0
+margin_left = 192.0
+margin_top = 96.0
+margin_right = 704.0
+margin_bottom = 288.0
 custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -232,9 +233,10 @@ icon = SubResource( 20 )
 clip_text = true
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2( -64, -48 )
+position = Vector2( -256, -64 )
 anchor_mode = 0
 current = true
+zoom = Vector2( 1.1, 1.1 )
 __meta__ = {
 "_editor_description_": ""
 }

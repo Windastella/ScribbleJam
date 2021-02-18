@@ -57,7 +57,7 @@ centered = false
 
 [node name="main_menu_questions" type="Sprite" parent="CanvasLayer/Menu"]
 position = Vector2( 368, 144 )
-rotation = 0.15708
+rotation = -0.15708
 scale = Vector2( 1.22222, 0.986784 )
 texture = ExtResource( 5 )
 

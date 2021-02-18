@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Base_Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pieces/Knight.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Pieces/Rook.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pieces/Pawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Pieces/King.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level_08.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Pieces/heart.png" type="Texture" id=10]
 [ext_resource path="res://assets/Pieces/BRook.tres" type="Texture" id=11]
 [ext_resource path="res://assets/Pieces/King.tres" type="Texture" id=12]
@@ -21,6 +22,7 @@
 [ext_resource path="res://assets/Pieces/heart_broken.png" type="Texture" id=20]
 
 [node name="Level" instance=ExtResource( 1 )]
+next_level = ExtResource( 9 )
 
 [node name="Rook" parent="Pieces" index="2" instance=ExtResource( 6 )]
 position = Vector2( 479.862, 415.921 )
