@@ -34,6 +34,7 @@ func _init_level(scene):
 
 
 func _on_Start_pressed():
+	_remove_level();
 	_init_level(initial_scene);
 	$CanvasLayer/Menu.hide();
 	$Music.stop();
