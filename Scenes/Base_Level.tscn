@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,10 +12,7 @@
 [ext_resource path="res://assets/background.png" type="Texture" id=10]
 [ext_resource path="res://assets/hint_box.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/Sounds/Music/Ruffles-and-Rust(Track02).wav" type="AudioStream" id=13]
-[ext_resource path="res://assets/Sounds/Music/Happy-Orchestral-Ballet(Track01).wav" type="AudioStream" id=14]
-[ext_resource path="res://assets/Sounds/Music/Leave-It-to-the-Professionals(Track03).wav" type="AudioStream" id=15]
-[ext_resource path="res://assets/Sounds/Music/Feriado(Track05).wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/Numbers/level1.png" type="Texture" id=13]
 [ext_resource path="res://assets/Menu/mute_button.png" type="Texture" id=17]
 [ext_resource path="res://assets/Menu/mute_button_selected.png" type="Texture" id=18]
 [ext_resource path="res://assets/Menu/menu_button_selected.png" type="Texture" id=19]
@@ -25,7 +22,7 @@
 [ext_resource path="res://assets/Menu/clock3.png" type="Texture" id=23]
 [ext_resource path="res://assets/Menu/clock2.png" type="Texture" id=24]
 
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
@@ -33,72 +30,72 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 32 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 256, 30 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 6 )
 region_rect = Rect2( 30, 410, 318, 64 )
 margin_right = 0.903742
 margin_top = 2.69876
 margin_bottom = 0.451871
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 6 )
 region_rect = Rect2( 343, 11, 55, 54 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 128, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=12]
-
 [sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=15]
-
 [sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 256, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="StyleBoxEmpty" id=18]
-
 [sub_resource type="StyleBoxEmpty" id=19]
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 64, 64 )
@@ -106,7 +103,7 @@ filter_clip = true
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 8 )
-music_list = [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ) ]
+music = ExtResource( 12 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -128, -64 )
@@ -169,8 +166,13 @@ __meta__ = {
 
 [node name="clock" type="AnimatedSprite" parent="Camera"]
 position = Vector2( 992, 528 )
-frames = SubResource( 21 )
+frames = SubResource( 1 )
+frame = 2
 playing = true
+
+[node name="level" type="Sprite" parent="Camera"]
+position = Vector2( 800, 112 )
+texture = ExtResource( 13 )
 
 [node name="Board" type="Node2D" parent="."]
 
@@ -185,21 +187,21 @@ visible = false
 
 [node name="Shape" type="CollisionShape2D" parent="Board/board_tile_map/Border"]
 position = Vector2( 256, -32 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Shape2" type="CollisionShape2D" parent="Board/board_tile_map/Border"]
 position = Vector2( -32, 256 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Shape3" type="CollisionShape2D" parent="Board/board_tile_map/Border"]
 position = Vector2( 544, 256 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Shape4" type="CollisionShape2D" parent="Board/board_tile_map/Border"]
 position = Vector2( 256, 544 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Board" type="Sprite" parent="Board"]
 position = Vector2( 256, 256 )
@@ -209,7 +211,7 @@ texture = ExtResource( 3 )
 position = Vector2( 256, 32 )
 
 [node name="Shape" type="CollisionShape2D" parent="Board/Goal"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Pieces" type="Node2D" parent="."]
 
@@ -239,7 +241,7 @@ margin_left = 192.0
 margin_top = 96.0
 margin_right = 704.0
 margin_bottom = 288.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -258,22 +260,22 @@ margin_bottom = 126.0
 [node name="King" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-icon = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = SubResource( 8 )
 clip_text = true
 
 [node name="Queen" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-icon = SubResource( 8 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = SubResource( 9 )
 clip_text = true
 
 [node name="Rook" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
@@ -282,9 +284,9 @@ margin_right = 200.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-icon = SubResource( 11 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+icon = SubResource( 12 )
 clip_text = true
 
 [node name="Knight" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
@@ -293,9 +295,9 @@ margin_right = 268.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
-icon = SubResource( 14 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+icon = SubResource( 15 )
 clip_text = true
 
 [node name="Bishop" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
@@ -304,9 +306,9 @@ margin_right = 336.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
-icon = SubResource( 17 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+icon = SubResource( 18 )
 clip_text = true
 
 [node name="Pawn" type="Button" parent="CanvasLayer/UI/Options/CenterContainer/HBoxContainer"]
@@ -315,9 +317,9 @@ margin_right = 404.0
 margin_bottom = 64.0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = SubResource( 18 )
-custom_styles/normal = SubResource( 19 )
-icon = SubResource( 20 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+icon = SubResource( 21 )
 clip_text = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -8,11 +8,10 @@ export (PIECES) var answer = PIECES.KING;
 
 export (PackedScene) var next_level;
 
-export (Array, AudioStream) var music_list;
+export(AudioStream ) var music : AudioStream;
 
 func _ready():
-	var i = randi() % 3;
-	$AudioStreamPlayer.stream = music_list[i];
+	$AudioStreamPlayer.stream = music;
 	$AudioStreamPlayer.play();
 
 func _answer(piece):

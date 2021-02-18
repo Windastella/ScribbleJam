@@ -16,11 +16,13 @@ func _input(event):
 		$CanvasLayer/Menu.show();
 	
 func _on_next_level(scene):
+	_remove_level();
+	
 	if(!scene):
 		$CanvasLayer/Menu.show();
+		$Music.play();
 		return;
 		
-	_remove_level();
 	_init_level(scene);
 	
 func _on_reset_level():
