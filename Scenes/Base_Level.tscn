@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/UI_Elements02.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI_Button.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=8]
+[ext_resource path="res://assets/Sounds/Thinking_Music.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 32 )
@@ -237,6 +238,10 @@ current = true
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 [connection signal="body_entered" from="Board/Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]

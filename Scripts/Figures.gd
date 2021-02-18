@@ -1,7 +1,7 @@
 extends Node2D
 class_name Figures
 
-export (Array, Texture) var dialogues; 
+export (Array, Texture) var dialogues;
 
 func _ready():
 	for tex in dialogues:
