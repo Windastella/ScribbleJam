@@ -23,25 +23,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-# move by arrow
-func _on_Right_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if(event.button_index == BUTTON_LEFT && event.pressed):
-			position.x += 64;
-			play_move_sound()
-
-func _on_Left_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if(event.button_index == BUTTON_LEFT && event.pressed):
-			position.x -= 64;
-			play_move_sound()
-
-
-func _on_Up_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if(event.button_index == BUTTON_LEFT && event.pressed):
-			position.y -= 64;
-			play_move_sound()
 	
 # hide on collision and trigger entity
 func _display_interaction(body):
@@ -86,17 +67,22 @@ func _on_Up_body_exited(body):
 	$Arrows/Up.input_pickable = true;
 	#_hide_interaction(body)
 
-func _on_Down_body_entered(body):
-	$Arrows/Down.hide();
-	$Arrows/Down.input_pickable = false;
-	#_display_interaction(body);
-
-func _on_Down_body_exited(body):
-	$Arrows/Down.show();
-	$Arrows/Down.input_pickable = true;
-	#_hide_interaction(body)
-
-
 func play_move_sound():
 	$AudioStreamPlayer.stream = move_sounds[rng.randi_range(0, move_sounds.size()-1)]
 	$AudioStreamPlayer.play()
+
+# move by arrow
+
+func _on_Right_pressed():
+	position.x += 64;
+	play_move_sound()
+
+
+func _on_Left_pressed():
+	position.x -= 64;
+	play_move_sound()
+
+
+func _on_Up_pressed():
+	position.y -= 64;
+	play_move_sound()

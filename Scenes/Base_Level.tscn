@@ -131,6 +131,7 @@ z_index = -1
 texture = ExtResource( 11 )
 
 [node name="Menu" type="TextureButton" parent="Camera"]
+pause_mode = 2
 margin_left = 896.0
 margin_top = 256.0
 margin_right = 1088.0
@@ -147,6 +148,7 @@ __meta__ = {
 }
 
 [node name="Mute" type="TextureButton" parent="Camera"]
+pause_mode = 2
 margin_left = 896.0
 margin_top = 352.0
 margin_right = 1088.0
@@ -163,9 +165,10 @@ __meta__ = {
 }
 
 [node name="clock" type="AnimatedSprite" parent="Camera"]
+pause_mode = 2
 position = Vector2( 992, 528 )
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="level" type="Sprite" parent="Camera"]
@@ -321,6 +324,7 @@ icon = SubResource( 21 )
 clip_text = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
 volume_db = -10.0
 autoplay = true

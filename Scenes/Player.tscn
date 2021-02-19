@@ -112,18 +112,28 @@ frame = 5
 shape = SubResource( 1 )
 
 [node name="Arrows" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="Right" type="Area2D" parent="Arrows"]
 position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 17
+frame = 5
 speed_scale = 5.0
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="Arrows/Right"]
 shape = SubResource( 23 )
+
+[node name="Right" type="TextureButton" parent="Arrows/Right"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Left" type="Area2D" parent="Arrows"]
 position = Vector2( -64, 0 )
@@ -131,12 +141,21 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 15
+frame = 3
 speed_scale = 5.0
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="Arrows/Left"]
 shape = SubResource( 23 )
+
+[node name="Left" type="TextureButton" parent="Arrows/Left"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Up" type="Area2D" parent="Arrows"]
 position = Vector2( 0, -64 )
@@ -144,27 +163,32 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 16
+frame = 4
 speed_scale = 5.0
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="Arrows/Up"]
 shape = SubResource( 23 )
 
-[node name="Down" type="Area2D" parent="Arrows"]
-position = Vector2( 0, 64 )
-
-[node name="Shape" type="CollisionShape2D" parent="Arrows/Down"]
-shape = SubResource( 23 )
+[node name="Up" type="TextureButton" parent="Arrows/Up"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
 [connection signal="body_entered" from="Arrows/Right" to="." method="_on_Right_body_entered"]
 [connection signal="body_exited" from="Arrows/Right" to="." method="_on_Right_body_exited"]
-[connection signal="input_event" from="Arrows/Right" to="." method="_on_Right_input_event"]
+[connection signal="pressed" from="Arrows/Right/Right" to="." method="_on_Right_pressed"]
 [connection signal="body_entered" from="Arrows/Left" to="." method="_on_Left_body_entered"]
 [connection signal="body_exited" from="Arrows/Left" to="." method="_on_Left_body_exited"]
 [connection signal="input_event" from="Arrows/Left" to="." method="_on_Left_input_event"]
+[connection signal="pressed" from="Arrows/Left/Left" to="." method="_on_Left_pressed"]
 [connection signal="body_entered" from="Arrows/Up" to="." method="_on_Up_body_entered"]
 [connection signal="body_exited" from="Arrows/Up" to="." method="_on_Up_body_exited"]
 [connection signal="input_event" from="Arrows/Up" to="." method="_on_Up_input_event"]
+[connection signal="pressed" from="Arrows/Up/Up" to="." method="_on_Up_pressed"]

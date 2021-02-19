@@ -15,20 +15,18 @@ func show_interaction():
 	
 func hide_interaction():
 	$interact_sprite.hide();
+	$dialog.hide();
+
+func _on_interact_pressed():
+	$interact_sprite.hide();
+
+	$dialog.show();
+	
+	get_tree().paused = true;
+
+func _on_dialog_pressed():
+	$interact_sprite.show();
 
 	$dialog.hide();
-		
-func _on_Interact_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if(event.button_index == BUTTON_LEFT && event.pressed):
-			$interact_sprite.hide();
-
-			$dialog.show();
-
-
-func _on_Dialog_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if(event.button_index == BUTTON_LEFT && event.pressed):
-			$interact_sprite.show();
-
-			$dialog.hide();
+			
+	get_tree().paused = false;

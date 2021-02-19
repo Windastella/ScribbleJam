@@ -1,18 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
 [ext_resource path="res://assets/interact_sprite.png" type="Texture" id=3]
 [ext_resource path="res://assets/comic-2.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 235, 118.875 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Default"
@@ -29,6 +23,7 @@ tracks/0/keys = {
 }
 
 [node name="Figure" type="StaticBody2D"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -38,19 +33,23 @@ vframes = 2
 hframes = 6
 frame = 11
 
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
 [node name="interact_sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 32, -64 )
 z_index = 2
 texture = ExtResource( 3 )
 
-[node name="Interact" type="Area2D" parent="interact_sprite"]
-
-[node name="Shape" type="CollisionShape2D" parent="interact_sprite/Interact"]
-shape = SubResource( 1 )
-
-[node name="Shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[node name="interact" type="TextureButton" parent="interact_sprite"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="dialog" type="Node2D" parent="."]
 visible = false
@@ -63,12 +62,6 @@ position = Vector2( 120, -128 )
 scale = Vector2( 0.578723, 0.807571 )
 texture = ExtResource( 4 )
 flip_h = true
-
-[node name="Interact" type="Area2D" parent="dialog/dialog_sprite"]
-
-[node name="Shape" type="CollisionShape2D" parent="dialog/dialog_sprite/Interact"]
-position = Vector2( 8.87115e-05, -39.625 )
-shape = SubResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="dialog"]
 margin_left = -16.0
@@ -87,7 +80,16 @@ margin_right = 136.0
 margin_bottom = 96.0
 columns = 3
 
+[node name="dialog" type="TextureButton" parent="dialog"]
+margin_top = -256.0
+margin_right = 256.0
+margin_bottom = -64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
 anims/Default = SubResource( 4 )
-[connection signal="input_event" from="interact_sprite/Interact" to="." method="_on_Interact_input_event"]
-[connection signal="input_event" from="dialog/dialog_sprite/Interact" to="." method="_on_Dialog_input_event"]
+[connection signal="pressed" from="interact_sprite/interact" to="." method="_on_interact_pressed"]
+[connection signal="pressed" from="dialog/dialog" to="." method="_on_dialog_pressed"]
