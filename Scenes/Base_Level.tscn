@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/hint_box.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/Numbers/level1.png" type="Texture" id=13]
+[ext_resource path="res://assets/Menu/restart_button_selected.png" type="Texture" id=14]
+[ext_resource path="res://assets/Menu/restart_button.png" type="Texture" id=15]
 [ext_resource path="res://assets/Menu/mute_button.png" type="Texture" id=17]
 [ext_resource path="res://assets/Menu/mute_button_selected.png" type="Texture" id=18]
 [ext_resource path="res://assets/Menu/menu_button_selected.png" type="Texture" id=19]
@@ -133,10 +135,10 @@ z_index = -1
 texture = ExtResource( 11 )
 
 [node name="Menu" type="TextureButton" parent="Camera"]
-margin_left = 896.0
-margin_top = 256.0
-margin_right = 1088.0
-margin_bottom = 328.0
+margin_left = 890.703
+margin_top = 206.205
+margin_right = 1082.7
+margin_bottom = 278.205
 focus_mode = 0
 enabled_focus_mode = 0
 texture_normal = ExtResource( 20 )
@@ -149,10 +151,10 @@ __meta__ = {
 }
 
 [node name="Mute" type="TextureButton" parent="Camera"]
-margin_left = 896.0
-margin_top = 352.0
-margin_right = 1088.0
-margin_bottom = 448.0
+margin_left = 893.881
+margin_top = 292.67
+margin_right = 1085.88
+margin_bottom = 388.67
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
@@ -167,12 +169,25 @@ __meta__ = {
 [node name="clock" type="AnimatedSprite" parent="Camera"]
 position = Vector2( 992, 528 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="level" type="Sprite" parent="Camera"]
 position = Vector2( 800, 112 )
 texture = ExtResource( 13 )
+
+[node name="Restart" type="TextureButton" parent="Camera"]
+margin_left = 892.068
+margin_top = 382.466
+margin_right = 1080.07
+margin_bottom = 454.466
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Board" type="Node2D" parent="."]
 
@@ -328,6 +343,7 @@ volume_db = -10.0
 autoplay = true
 [connection signal="pressed" from="Camera/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="toggled" from="Camera/Mute" to="." method="_on_Mute_toggled"]
+[connection signal="pressed" from="Camera/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="body_entered" from="Board/Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/King" to="." method="_on_King_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Queen" to="." method="_on_Queen_pressed"]

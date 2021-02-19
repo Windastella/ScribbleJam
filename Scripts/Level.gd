@@ -59,3 +59,6 @@ func _on_Mute_toggled(button_pressed):
 
 func _on_Menu_pressed():
 	emit_signal("change_level", null);
+
+func _on_Restart_pressed():
+	emit_signal("reset_level");
