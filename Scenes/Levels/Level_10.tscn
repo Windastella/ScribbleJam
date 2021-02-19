@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Base_Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pieces/Knight.tscn" type="PackedScene" id=2]
@@ -19,14 +19,13 @@
 [ext_resource path="res://assets/Pieces/BKnight.tres" type="Texture" id=17]
 [ext_resource path="res://assets/Pieces/heart_broken.png" type="Texture" id=18]
 [ext_resource path="res://assets/Numbers/level10.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Levels/End.tscn" type="PackedScene" id=20]
 
 [node name="Level" instance=ExtResource( 1 )]
 answer = 5
+next_level = ExtResource( 20 )
 
-[node name="clock" parent="Camera" index="5"]
-frame = 0
-
-[node name="level" parent="Camera" index="6"]
+[node name="level" parent="Camera" index="7"]
 position = Vector2( 825, 112 )
 texture = ExtResource( 19 )
 
@@ -74,3 +73,6 @@ position = Vector2( 672, 304 )
 
 [node name="Honest2" parent="Hint" index="2" instance=ExtResource( 4 )]
 position = Vector2( 672, 480 )
+
+[node name="AnimatedSprite" parent="CanvasLayer/Win" index="0"]
+frame = 0

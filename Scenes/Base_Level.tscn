@@ -203,7 +203,6 @@ __meta__ = {
 pause_mode = 2
 position = Vector2( 992, 528 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="level" type="Sprite" parent="Camera"]
@@ -372,7 +371,6 @@ __meta__ = {
 position = Vector2( -64, -64 )
 scale = Vector2( 1, 0.998333 )
 frames = SubResource( 22 )
-frame = 1
 playing = true
 centered = false
 
