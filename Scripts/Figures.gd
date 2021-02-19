@@ -4,6 +4,7 @@ class_name Figures
 export (Array, Texture) var dialogues;
 
 export (Array, AudioStream) var hint_sounds;
+export (Array, AudioStream) var mumble_sounds;
 
 func _ready():
 	for tex in dialogues:
@@ -24,6 +25,10 @@ func hide_interaction():
 	$dialog.hide();
 
 func _on_interact_pressed():
+	var i = round(rand_range(0, mumble_sounds.size() - 1));
+	$SFX.stream = mumble_sounds[i];
+	$SFX.play();
+	
 	$interact_sprite.hide();
 
 	$dialog.show();

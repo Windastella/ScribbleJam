@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/Sounds/PSss_02.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/Sounds/PSss _01.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/Sounds/PSss_03.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Sounds/chat_02.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/Sounds/chat_01.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -29,6 +31,7 @@ tracks/0/keys = {
 pause_mode = 2
 script = ExtResource( 1 )
 hint_sounds = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
+mumble_sounds = [ ExtResource( 9 ), ExtResource( 8 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.0872665
