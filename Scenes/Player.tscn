@@ -1,8 +1,13 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
 [ext_resource path="res://assets/arrow_sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sounds/Movement_sound_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Sounds/Movement_sound_3.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Sounds/Movement_sound_2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/Sounds/Movement_sound_5.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Sounds/Movement_sound_4.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -101,6 +106,7 @@ extents = Vector2( 16, 16 )
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
 script = ExtResource( 1 )
+move_sounds = [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -119,7 +125,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 4
+frame = 12
 speed_scale = 5.0
 playing = true
 
@@ -141,7 +147,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 2
+frame = 10
 speed_scale = 5.0
 playing = true
 
@@ -163,7 +169,7 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 3
+frame = 11
 speed_scale = 5.0
 playing = true
 
@@ -181,6 +187,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = 5.0
+pitch_scale = 2.0
 [connection signal="body_entered" from="Arrows/Right" to="." method="_on_Right_body_entered"]
 [connection signal="body_exited" from="Arrows/Right" to="." method="_on_Right_body_exited"]
 [connection signal="pressed" from="Arrows/Right/Right" to="." method="_on_Right_pressed"]

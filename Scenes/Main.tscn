@@ -109,6 +109,7 @@ anims/Default = SubResource( 1 )
 pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -10.0
+pitch_scale = 1.5
 autoplay = true
 __meta__ = {
 "_editor_description_": ""
@@ -117,6 +118,7 @@ __meta__ = {
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 volume_db = -15.0
+pitch_scale = 2.0
 [connection signal="mouse_entered" from="CanvasLayer/Menu/VBoxContainer/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Menu/VBoxContainer/Credit" to="." method="_on_Credit_mouse_entered"]

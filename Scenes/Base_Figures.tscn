@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
 [ext_resource path="res://assets/interact_sprite.png" type="Texture" id=3]
 [ext_resource path="res://assets/comic-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Sounds/PSss_02.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Sounds/PSss _01.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/Sounds/PSss_03.wav" type="AudioStream" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Default"
 loop = true
 tracks/0/type = "bezier"
@@ -25,6 +28,7 @@ tracks/0/keys = {
 [node name="Figure" type="StaticBody2D"]
 pause_mode = 2
 script = ExtResource( 1 )
+hint_sounds = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.0872665
@@ -34,7 +38,7 @@ hframes = 6
 frame = 11
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="interact_sprite" type="Sprite" parent="."]
 visible = false
@@ -90,6 +94,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
-anims/Default = SubResource( 4 )
+anims/Default = SubResource( 2 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+pitch_scale = 2.5
 [connection signal="pressed" from="interact_sprite/interact" to="." method="_on_interact_pressed"]
 [connection signal="pressed" from="dialog/dialog" to="." method="_on_dialog_pressed"]

@@ -5,13 +5,7 @@ class_name Player
 # var a = 2
 # var b = "text"
 var rng = RandomNumberGenerator.new()
-var move_sounds = [
-	load("res://assets/Sounds/Movement_sound_1.wav"),
-	load("res://assets/Sounds/Movement_sound_2.wav"),
-	load("res://assets/Sounds/Movement_sound_3.wav"),
-	load("res://assets/Sounds/Movement_sound_4.wav"),
-	load("res://assets/Sounds/Movement_sound_5.wav")
-]
+export (Array, AudioStream) var move_sounds;
 
 var right_body = null
 var left_body = null

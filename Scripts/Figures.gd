@@ -3,6 +3,8 @@ class_name Figures
 
 export (Array, Texture) var dialogues;
 
+export (Array, AudioStream) var hint_sounds;
+
 func _ready():
 	for tex in dialogues:
 		var texrect = TextureRect.new();
@@ -11,7 +13,11 @@ func _ready():
 	$AnimationPlayer.play("Default");
 
 func show_interaction():
+	var i = round(rand_range(0, hint_sounds.size() - 1));
+	$SFX.stream = hint_sounds[i];
+	$SFX.play();
 	$interact_sprite.show();
+	
 	
 func hide_interaction():
 	$interact_sprite.hide();
