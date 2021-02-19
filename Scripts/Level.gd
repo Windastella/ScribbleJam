@@ -49,9 +49,9 @@ func _on_Goal_body_entered(body):
 
 func _on_Mute_toggled(button_pressed):
 	if(button_pressed):
-		$AudioStreamPlayer.stop();
+		AudioServer.set_bus_mute(0, true);
 	else:
-		$AudioStreamPlayer.play();
+		AudioServer.set_bus_mute(0, false);
 
 
 func _on_Menu_pressed():
