@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Scripts/Figures.gd" type="Script" id=1]
 [ext_resource path="res://assets/pieces.png" type="Texture" id=2]
-[ext_resource path="res://assets/interact_sprite.png" type="Texture" id=3]
+[ext_resource path="res://assets/new_interact_sprite.png" type="Texture" id=3]
 [ext_resource path="res://assets/comic-2.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 27.0101, 28.6188 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
@@ -40,7 +40,7 @@ frame = 11
 
 [node name="interact_sprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 25, -64 )
+position = Vector2( 20, -64 )
 z_index = 2
 texture = ExtResource( 3 )
 
