@@ -13,11 +13,14 @@ var move_sounds = [
 	load("res://assets/Sounds/Movement_sound_5.wav")
 ]
 
+var right_body = null
+var left_body = null
+var up_body = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -53,36 +56,42 @@ func _hide_interaction(body):
 		body.hide_interaction()
 		
 func _on_Right_body_entered(body):
+	right_body = body
 	$Arrows/Right.hide();
 	$Arrows/Right.input_pickable = false;
 	_display_interaction(body);
 
 
 func _on_Right_body_exited(body):
-	$Arrows/Right.show();
+	if(right_body == body):
+		$Arrows/Right.show();
 	$Arrows/Right.input_pickable = true;
 	_hide_interaction(body)
 
 
 func _on_Left_body_entered(body):
+	left_body = body
 	$Arrows/Left.hide();
 	$Arrows/Left.input_pickable = false;
 	_display_interaction(body);
 
 
 func _on_Left_body_exited(body):
-	$Arrows/Left.show();
+	if(left_body == body):
+		$Arrows/Left.show();
 	$Arrows/Left.input_pickable = true;
 	_hide_interaction(body)
 
 
 func _on_Up_body_entered(body):
+	up_body = body
 	$Arrows/Up.hide();
 	$Arrows/Up.input_pickable = false;
 	#_display_interaction(body);
 
 func _on_Up_body_exited(body):
-	$Arrows/Up.show();
+	if(up_body == body):
+		$Arrows/Up.show();
 	$Arrows/Up.input_pickable = true;
 	#_hide_interaction(body)
 
