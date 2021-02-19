@@ -17,6 +17,10 @@ var right_body = null
 var left_body = null
 var up_body = null
 
+var should_show_right = false
+var should_show_left = false
+var should_show_up = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -25,6 +29,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_show_dialog():
+	should_show_left = $Arrows/Left.visible
+	should_show_right = $Arrows/Right.visible
+	should_show_up = $Arrows/Up.visible
+	hide_arrows()
+	
+func _on_hide_dialog():
+	if(should_show_left): $Arrows/Left.show()
+	if(should_show_right): $Arrows/Right.show()
+	if(should_show_up): $Arrows/Up.show()
+
+func hide_arrows():
+	$Arrows/Up.hide()
+	$Arrows/Left.hide()
+	$Arrows/Right.hide()
 
 # move by arrow
 func _on_Right_input_event(_viewport, event, _shape_idx):
