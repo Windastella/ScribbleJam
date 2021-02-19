@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/UI_Elements02.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI_Button.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=8]
-[ext_resource path="res://assets/Win/win_screen1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Win/lose_screen1.png" type="Texture" id=9]
 [ext_resource path="res://assets/background.png" type="Texture" id=10]
 [ext_resource path="res://assets/hint_box.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sounds/Music/A-Mouse-in-the-House(Track04).wav" type="AudioStream" id=12]
@@ -30,6 +30,8 @@
 [ext_resource path="res://assets/Sounds/Smack_01.wav" type="AudioStream" id=28]
 [ext_resource path="res://assets/Sounds/Smack_02.wav" type="AudioStream" id=29]
 [ext_resource path="res://assets/Sounds/Smack_03.wav" type="AudioStream" id=30]
+[ext_resource path="res://assets/Win/win_screen1.png" type="Texture" id=31]
+[ext_resource path="res://assets/Sounds/hit37.wav" type="AudioStream" id=32]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -112,7 +114,7 @@ filter_clip = true
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -122,6 +124,7 @@ animations = [ {
 script = ExtResource( 8 )
 button_sound = ExtResource( 27 )
 win_sounds = [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ]
+lose_sounds = [ ExtResource( 32 ) ]
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -128, -64 )
@@ -200,6 +203,7 @@ __meta__ = {
 pause_mode = 2
 position = Vector2( 992, 528 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="level" type="Sprite" parent="Camera"]
@@ -367,7 +371,6 @@ __meta__ = {
 position = Vector2( -64, -64 )
 scale = Vector2( 1, 0.998333 )
 frames = SubResource( 22 )
-frame = 1
 playing = true
 centered = false
 
@@ -381,6 +384,48 @@ texture_pressed = ExtResource( 26 )
 texture_hover = ExtResource( 26 )
 texture_disabled = ExtResource( 25 )
 texture_focused = ExtResource( 26 )
+
+[node name="Lose" type="Control" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Lose"]
+position = Vector2( -64, -64 )
+scale = Vector2( 1, 0.998333 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/Lose"]
+margin_left = 752.0
+margin_top = 400.0
+margin_right = 931.0
+margin_bottom = 480.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/Lose"]
+margin_left = 752.0
+margin_top = 304.0
+margin_right = 940.0
+margin_bottom = 384.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 20 )
+texture_focused = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -406,3 +451,7 @@ pitch_scale = 2.0
 [connection signal="pressed" from="CanvasLayer/UI/Options/CenterContainer/HBoxContainer/Pawn" to="." method="_on_Pawn_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Win/Continue" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Win/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Lose/Restart" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Lose/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Lose/Menu" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Lose/Menu" to="." method="_on_Menu_pressed"]

@@ -10,6 +10,7 @@ export (PackedScene) var next_level;
 
 export(AudioStream) var button_sound;
 export(Array, AudioStream) var win_sounds : Array;
+export(Array, AudioStream) var lose_sounds : Array;
 
 func _ready():
 	$AudioStreamPlayer.play();
@@ -23,7 +24,10 @@ func _answer(piece):
 		$SFX.play();
 		$CanvasLayer/Win.show();
 	else:
-		emit_signal("reset_level");
+		var i = round(rand_range(0, lose_sounds.size() - 1));
+		$SFX.stream = lose_sounds[i];
+		$SFX.play();
+		$CanvasLayer/Lose.show();
 		
 func _on_King_pressed():
 	_answer(PIECES.KING);
@@ -64,6 +68,7 @@ func _on_Menu_pressed():
 	emit_signal("change_level", null);
 
 func _on_Restart_pressed():
+	$CanvasLayer/Lose.hide();
 	emit_signal("reset_level");
 	
 func _on_Continue_pressed():

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit37.wav-6f7f6b4924f0e3c738a14ca0eea538bf.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/hit37.wav"
+dest_files=[ "res://.import/hit37.wav-6f7f6b4924f0e3c738a14ca0eea538bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
