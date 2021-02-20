@@ -103,7 +103,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 16, 16 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 z_index = 1
 script = ExtResource( 1 )
 move_sounds = [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ]
@@ -125,7 +127,7 @@ position = Vector2( 64, 0 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Right"]
 frames = SubResource( 22 )
-frame = 13
+frame = 3
 speed_scale = 5.0
 playing = true
 
@@ -147,7 +149,7 @@ position = Vector2( -64, 0 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Left"]
 rotation = 3.14159
 frames = SubResource( 22 )
-frame = 11
+frame = 1
 speed_scale = 5.0
 playing = true
 
@@ -169,7 +171,7 @@ position = Vector2( 0, -64 )
 [node name="Sprite" type="AnimatedSprite" parent="Arrows/Up"]
 rotation = -1.5708
 frames = SubResource( 22 )
-frame = 12
+frame = 2
 speed_scale = 5.0
 playing = true
 
